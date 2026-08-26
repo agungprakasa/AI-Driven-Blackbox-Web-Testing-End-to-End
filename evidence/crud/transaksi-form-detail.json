@@ -1,0 +1,61 @@
+{
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "name": "",
+      "placeholder": "Find page...",
+      "label": ""
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Dashboard"
+    },
+    {
+      "text": "Processing"
+    },
+    {
+      "text": "Collecting"
+    },
+    {
+      "text": "Referensi"
+    },
+    {
+      "text": "Tarif"
+    },
+    {
+      "text": "Reporting"
+    },
+    {
+      "text": "Tracking"
+    },
+    {
+      "text": "Operational"
+    },
+    {
+      "text": "Tools"
+    },
+    {
+      "text": "Finance"
+    },
+    {
+      "text": "Modules"
+    },
+    {
+      "text": "Settings"
+    },
+    {
+      "text": "Account"
+    },
+    {
+      "text": "Log Out"
+    },
+    {
+      "text": ""
+    },
+    {
+      "text": ""
+    }
+  ]
+}

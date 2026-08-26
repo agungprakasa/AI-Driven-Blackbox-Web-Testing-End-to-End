@@ -1,0 +1,336 @@
+{
+  "url": "https://ipos-dev.posindonesia.co.id/id/dashboard/overview",
+  "title": "Courier Core System - Pos Indonesia",
+  "links": [
+    {
+      "text": "Skip to content",
+      "href": "#main-content",
+      "visible": true
+    },
+    {
+      "text": "Courier Core System",
+      "href": "/dashboard",
+      "visible": true
+    },
+    {
+      "text": "Overview",
+      "href": "/dashboard/overview",
+      "visible": true
+    },
+    {
+      "text": "Webhook",
+      "href": "/dashboard/webhook",
+      "visible": true
+    },
+    {
+      "text": "Receiving",
+      "href": "/processing/receiving",
+      "visible": true
+    },
+    {
+      "text": "Bagging",
+      "href": "/processing/bagging",
+      "visible": true
+    },
+    {
+      "text": "Manifest R7",
+      "href": "/processing/manifest",
+      "visible": true
+    },
+    {
+      "text": "Hand Over",
+      "href": "/processing/handover",
+      "visible": true
+    },
+    {
+      "text": "Unbagging",
+      "href": "/processing/unbagging",
+      "visible": true
+    },
+    {
+      "text": "Bags",
+      "href": "/processing/bags",
+      "visible": true
+    },
+    {
+      "text": "Manifests",
+      "href": "/processing/manifests",
+      "visible": true
+    },
+    {
+      "text": "Loading",
+      "href": "/processing/loading",
+      "visible": true
+    },
+    {
+      "text": "Unloading",
+      "href": "/processing/unloading",
+      "visible": true
+    },
+    {
+      "text": "Irregularity",
+      "href": "/processing/irregularity",
+      "visible": true
+    },
+    {
+      "text": "Beranda",
+      "href": "/collecting",
+      "visible": true
+    },
+    {
+      "text": "Transaksi",
+      "href": "/collecting/transaksi",
+      "visible": true
+    },
+    {
+      "text": "Daftar Transaksi",
+      "href": "/collecting/daftar-transaksi",
+      "visible": true
+    },
+    {
+      "text": "Backsheet",
+      "href": "/collecting/backsheet",
+      "visible": true
+    },
+    {
+      "text": "Rekap Harian",
+      "href": "/collecting/rekap-harian",
+      "visible": true
+    },
+    {
+      "text": "Audit Koreksi",
+      "href": "/collecting/audit-koreksi",
+      "visible": true
+    },
+    {
+      "text": "Pembatalan",
+      "href": "/collecting/pembatalan",
+      "visible": true
+    },
+    {
+      "text": "Hitung Tarif",
+      "href": "/referencing/tarif/calculate",
+      "visible": true
+    },
+    {
+      "text": "Daftar Paket",
+      "href": "/reporting/paket",
+      "visible": true
+    },
+    {
+      "text": "Daftar Bag",
+      "href": "/reporting/bag",
+      "visible": true
+    },
+    {
+      "text": "Bag",
+      "href": "/reporting/tracking/bag",
+      "visible": true
+    },
+    {
+      "text": "Bag Item",
+      "href": "/reporting/tracking/bag-item",
+      "visible": true
+    },
+    {
+      "text": "Tracking Events",
+      "href": "/reporting/tracking/tracking-events",
+      "visible": true
+    },
+    {
+      "text": "Tracking Events Raw",
+      "href": "/reporting/tracking/tracking-events-raw",
+      "visible": true
+    },
+    {
+      "text": "Daftar Kedatangan",
+      "href": "/reporting/kedatangan",
+      "visible": true
+    },
+    {
+      "text": "Daftar Angkutan",
+      "href": "/reporting/angkutan",
+      "visible": true
+    },
+    {
+      "text": "Loading",
+      "href": "/reporting/operational/loading",
+      "visible": true
+    },
+    {
+      "text": "Loading Bag",
+      "href": "/reporting/operational/loading-bag",
+      "visible": true
+    },
+    {
+      "text": "Unloading",
+      "href": "/reporting/operational/unloading",
+      "visible": true
+    },
+    {
+      "text": "Unloading Bag",
+      "href": "/reporting/operational/unloading-bag",
+      "visible": true
+    },
+    {
+      "text": "Receiving",
+      "href": "/reporting/operational/receiving",
+      "visible": true
+    },
+    {
+      "text": "Manifest R7",
+      "href": "/reporting/manifest",
+      "visible": true
+    },
+    {
+      "text": "Unbagging",
+      "href": "/reporting/tools/unbagging",
+      "visible": true
+    },
+    {
+      "text": "Unbagging Item",
+      "href": "/reporting/tools/unbagging-item",
+      "visible": true
+    },
+    {
+      "text": "Pre-Bagging",
+      "href": "/reporting/tools/pre-bagging",
+      "visible": true
+    },
+    {
+      "text": "Manifest R7",
+      "href": "/reporting/tools/manifest-r7",
+      "visible": true
+    },
+    {
+      "text": "Irregularity",
+      "href": "/reporting/tools/irregularity",
+      "visible": true
+    },
+    {
+      "text": "Komisi Agenpos",
+      "href": "/reporting/komisi",
+      "visible": true
+    },
+    {
+      "text": "Laporan Keuangan",
+      "href": "/reporting/keuangan",
+      "visible": true
+    },
+    {
+      "text": "Package",
+      "href": "https://expossandbox.mile.app",
+      "visible": true
+    },
+    {
+      "text": "Irregularity",
+      "href": "/modules/irregularity",
+      "visible": true
+    },
+    {
+      "text": "COD Recon",
+      "href": "/modules/cod-recon",
+      "visible": true
+    },
+    {
+      "text": "User",
+      "href": "/settings/user",
+      "visible": true
+    },
+    {
+      "text": "Team",
+      "href": "/settings/team",
+      "visible": true
+    },
+    {
+      "text": "Location",
+      "href": "/settings/location",
+      "visible": true
+    },
+    {
+      "text": "Role",
+      "href": "/settings/role",
+      "visible": true
+    },
+    {
+      "text": "Permission",
+      "href": "/settings/permission",
+      "visible": true
+    },
+    {
+      "text": "Webhook",
+      "href": "/settings/webhook",
+      "visible": true
+    },
+    {
+      "text": "Flow",
+      "href": "/settings/flow",
+      "visible": true
+    },
+    {
+      "text": "Data",
+      "href": "/settings/data",
+      "visible": true
+    },
+    {
+      "text": "Billing",
+      "href": "/settings/billing",
+      "visible": true
+    },
+    {
+      "text": "Packaging",
+      "href": "/settings/packaging",
+      "visible": true
+    },
+    {
+      "text": "Location Type",
+      "href": "/settings/location-type",
+      "visible": true
+    },
+    {
+      "text": "Location Group",
+      "href": "/settings/location-group",
+      "visible": true
+    },
+    {
+      "text": "Customization",
+      "href": "/settings/customization",
+      "visible": true
+    },
+    {
+      "text": "Transport Mode",
+      "href": "/settings/transport-mode",
+      "visible": true
+    },
+    {
+      "text": "Custom Field",
+      "href": "/settings/custom-field",
+      "visible": true
+    },
+    {
+      "text": "Product Formula",
+      "href": "/settings/warehouse/product-formula",
+      "visible": true
+    },
+    {
+      "text": "Profile",
+      "href": "/account",
+      "visible": true
+    },
+    {
+      "text": "Password",
+      "href": "/account/password",
+      "visible": true
+    },
+    {
+      "text": "API Key",
+      "href": "/account/api-key",
+      "visible": true
+    },
+    {
+      "text": "MFA",
+      "href": "/account/mfa",
+      "visible": true
+    }
+  ]
+}
