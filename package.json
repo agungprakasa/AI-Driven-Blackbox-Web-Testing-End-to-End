@@ -1,0 +1,17 @@
+{
+  "name": "api-testing-template",
+  "version": "1.0.0",
+  "description": "AI-Driven Blackbox API Testing — End-to-End",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:api": "npx playwright test tests/api/",
+    "test:report": "npx playwright show-report",
+    "parse-curl": "python scripts/parse-curl.py",
+    "generate:docx": "python scripts/generate-docx.py",
+    "generate:excel": "python scripts/generate-excel.py",
+    "validate": "python scripts/validate-report.py"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  }
+}
