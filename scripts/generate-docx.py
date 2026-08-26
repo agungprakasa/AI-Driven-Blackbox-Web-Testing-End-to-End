@@ -23,7 +23,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "reports" / "docx"
-TARGET_APP = "SauceDemo (https://www.saucedemo.com)"
+TARGET_APP = "Ipos5 Courier Core System (https://ipos-dev.posindonesia.co.id)"
 
 HIJAU = RGBColor(0x00, 0x61, 0x00)
 MERAH = RGBColor(0x9C, 0x00, 0x06)
@@ -134,9 +134,12 @@ def main() -> int:
 
     # ===== 2. Hasil Pengujian per Modul =====
     heading(doc, "2. Hasil Pengujian", 1)
-    modul_urut = ["AUTH", "INV", "DET", "CART", "CHK", "NAV", "E2E"]
-    nama_modul = {"AUTH": "Autentikasi & Sesi", "INV": "Katalog Produk", "DET": "Detail Produk",
-                  "CART": "Keranjang Belanja", "CHK": "Checkout", "NAV": "Navigasi & Sidebar",
+    modul_urut = ["AUTH", "PROC", "COLL", "REPO", "TRCK", "SETT", "MODL", "ACCT", "DASH", "FILTER", "E2E"]
+    nama_modul = {"AUTH": "Autentikasi & Sesi", "PROC": "Processing (Pengolahan Paket)",
+                  "COLL": "Collecting (Transaksi)", "REPO": "Reporting (Pelaporan)",
+                  "TRCK": "Tracking", "SETT": "Settings (Pengaturan)",
+                  "MODL": "Modules (Tambahan)", "ACCT": "Account (Akun)",
+                  "DASH": "Dashboard", "FILTER": "Filter & Export/Download",
                   "E2E": "End-to-End"}
     for m in modul_urut:
         subset = [t for t in tests if t["modul"] == m]
@@ -244,12 +247,12 @@ def main() -> int:
                 para(doc, f"[Gagal menyisipkan gambar: {e}]", italic=True)
             doc.add_paragraph()  # spasi antar gambar
 
-    out = OUT_DIR / f"Laporan-QA-SauceDemo-{date.today().isoformat()}.docx"
+    out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}.docx"
     try:
         doc.save(out)
     except PermissionError:
         import time
-        out = OUT_DIR / f"Laporan-QA-SauceDemo-{date.today().isoformat()}-{time.strftime('%H%M')}.docx"
+        out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}-{time.strftime('%H%M')}.docx"
         doc.save(out)
         print("[INFO] File tanggal sama terkunci; disimpan dengan suffix jam.")
     print(f"Laporan DOCX dibuat : {out.relative_to(ROOT)}")

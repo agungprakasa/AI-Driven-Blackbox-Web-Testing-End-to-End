@@ -153,8 +153,78 @@ Tracking (bag, bag-item, events)
 - Form transaksi Collecting tidak terlihat — kemungkinan melalui alur Receiving
 - Environment dev memiliki data test (25 paket, 25 bag)
 - Beberapa halaman memerlukan data R7 yang valid untuk aktivasi tombol
+- Filter inputs tidak memiliki placeholder yang deskriptif (kecuali Tracking Events: "Enter connote code...")
+- 6 halaman Reporting memiliki tombol Export untuk download data
 
-## 6. Rekomendasi Testing
+## 6. Fitur Filter & Download (Hasil Eksplorasi Lengkap)
+
+### Reporting — Filter & Export
+| Halaman | Filter Inputs | Export | Keterangan |
+|---------|---------------|--------|------------|
+| Daftar Paket | 10 (text, date, number, select) | ✅ Export | Filter: nomor resi, tanggal, service, status |
+| Daftar Bag | 10 (text, date, number, select) | ✅ Export | Filter: nomor bag, tanggal, status |
+| Tracking Bag | 10 (text, date, number, select) | ❌ | Filter: nomor bag, tanggal, status |
+| Tracking Bag Item | 10 (text, date, number, select) | ❌ | Filter: nomor bag item, tanggal |
+| Tracking Events | 2 (text, connote code) | ❌ | Search by connote code |
+| Daftar Kedatangan | 10 (text, date, number, select) | ✅ Export | Filter: tanggal kedatangan, asal |
+| Daftar Angkutan | 10 (text, date, number, select) | ❌ | Filter: tanggal, rute |
+| Loading | 10 (text, date, number, select) | ✅ Export | Filter: tanggal, status |
+| Laporan Keuangan | 10 (text, date, number, select) | ✅ Export | Filter: tanggal, jenis transaksi |
+| Komisi Agenpos | 10 (text, date, number, select) | ✅ Export | Filter: tanggal, agen |
+| Manifest R7 | 10 (text, date, number, select) | ❌ | Filter: tanggal, tujuan |
+| Tools (5 halaman) | 10 masing-masing | ❌ | Unbagging, Pre-Bagging, dll |
+
+### Processing — Filter
+| Halaman | Filter/Button | Keterangan |
+|---------|---------------|------------|
+| Receiving | Scan R7 input | Input nomor R7, tombol Konfirmasi R7 (disabled) |
+| Bagging | Muat Draf, Pilih kantor tujuan | Dropdown kantor tujuan |
+| Manifest | Checkbox | Pilih paket untuk manifest |
+| Loading | Tab: Pending/Scanned/Berangkat | Filter berdasarkan status |
+| Unloading | Find page search | Pencarian sederhana |
+
+### Collecting — Filter
+| Halaman | Filter Input | Keterangan |
+|---------|-------------|------------|
+| Daftar Transaksi | Date, Cari nomor resi, Cari, Segarkan | Filter tanggal & nomor resi |
+| Backsheet | Find page search | Pencarian sederhana |
+| Rekap Harian | Cari nomor rekap (search) | Pencarian by nomor rekap |
+| Audit Koreksi | Cari No. Resi / Kode Booking | Pencarian by resi/booking |
+| Pembatalan | Masukkan Nomor Resi | Pencarian by nomor resi |
+
+### Settings — Filter
+| Halaman | Filter | Keterangan |
+|---------|--------|------------|
+| User | Find page search | Pencarian sederhana |
+| Role | Find page search | Pencarian sederhana |
+| Location | Find page search | Pencarian sederhana |
+| Permission | Find page search | Pencarian sederhana |
+
+### Referencing — Hitung Tarif
+| Field | Tipe | Keterangan |
+|-------|------|------------|
+| Customer | Select + Pilih customer | Pilih jenis customer |
+| Kode Pos Asal | Pilih kode pos asal | Lokasi pengiriman |
+| Kode Pos Tujuan | Pilih kode pos tujuan | Lokasi penerimaan |
+| Berat (gram) | Number (default 1000) | Berat paket |
+| Panjang, Lebar, Tinggi | Number | Dimensi paket |
+| Asuransi | Number | Nilai asuransi |
+| Tombol | Hitung Tarif | Hitung total biaya |
+
+### Summary — Export/Download
+| Halaman | Tombol Export |
+|---------|---------------|
+| Daftar Paket | ✅ Export |
+| Daftar Bag | ✅ Export |
+| Daftar Kedatangan | ✅ Export |
+| Loading | ✅ Export |
+| Laporan Keuangan | ✅ Export |
+| Komisi Agenpos | ✅ Export |
+| **Total** | **6 halaman dengan Export** |
+
+---
+
+## 7. Rekomendasi Testing
 
 ### Prioritas Tinggi
 1. **Authentication** — login NIPPOS+Password+OTP, session handling

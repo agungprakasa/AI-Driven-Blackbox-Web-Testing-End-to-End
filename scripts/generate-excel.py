@@ -22,7 +22,7 @@ if hasattr(sys.stdout, "reconfigure"):
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "reports" / "excel"
 
-TARGET_APP = "SauceDemo (https://www.saucedemo.com)"
+TARGET_APP = "Ipos5 Courier Core System (https://ipos-dev.posindonesia.co.id)"
 
 THIN = Side(style="thin", color="CCCCCC")
 BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
@@ -185,13 +185,13 @@ def main() -> int:
     else:
         ws3.cell(row=1, column=1, value="Tidak ada defect terdokumentasi.")
 
-    out = OUT_DIR / f"Laporan-QA-SauceDemo-{date.today().isoformat()}.xlsx"
+    out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}.xlsx"
     try:
         wb.save(out)
     except PermissionError:
         # File lama terbuka di Excel/terkunci -> simpan dengan suffix jam
         import time
-        out = OUT_DIR / f"Laporan-QA-SauceDemo-{date.today().isoformat()}-{time.strftime('%H%M')}.xlsx"
+        out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}-{time.strftime('%H%M')}.xlsx"
         wb.save(out)
         print("[INFO] File tanggal sama terkunci; disimpan dengan suffix jam.")
     print(f"Laporan Excel dibuat : {out.relative_to(ROOT)}")

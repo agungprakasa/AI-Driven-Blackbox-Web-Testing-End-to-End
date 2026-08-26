@@ -148,6 +148,33 @@
 
 ---
 
+## Modul: FILTER — Filter & Export/Download
+
+| ID | Judul | Pre-condition | Steps | Expected Result | Priority | Status |
+|----|-------|---------------|-------|-----------------|----------|--------|
+| TC-FILTER-001 | Reporting Paket — filter tanggal | Sudah login; ada data paket | 1. Buka /reporting/paket<br>2. Set tanggal awal: 2026-08-01<br>3. Set tanggal akhir: 2026-08-31<br>4. Apply filter | Data paket difilter sesuai rentang tanggal | High | PASS |
+| TC-FILTER-002 | Reporting Paket — search by connote code | Sudah login; ada data paket | 1. Buka /reporting/paket<br>2. Masukkan nomor resi di search<br>3. Tekan Enter | Data paket ditemukan sesuai nomor resi | High | PASS |
+| TC-FILTER-003 | Reporting Paket — Export | Sudah login | 1. Buka /reporting/paket<br>2. Klik tombol Export | File berhasil didownload (CSV/Excel) | High | PASS |
+| TC-FILTER-004 | Reporting Bag — filter | Sudah login; ada data bag | 1. Buka /reporting/bag<br>2. Gunakan filter tanggal/status<br>3. Apply filter | Data bag difilter sesuai kriteria | Medium | PASS |
+| TC-FILTER-005 | Reporting Bag — Export | Sudah login | 1. Buka /reporting/bag<br>2. Klik tombol Export | File berhasil didownload | Medium | PASS |
+| TC-FILTER-006 | Tracking Bag — filter by bag number | Sudah login; ada data bag | 1. Buka /reporting/tracking/bag<br>2. Masukkan nomor bag di search<br>3. Apply filter | Data tracking bag ditemukan | High | PASS |
+| TC-FILTER-007 | Tracking Events — search by connote code | Sudah login | 1. Buka /reporting/tracking/tracking-events<br>2. Masukkan connote code: 40000178773792401<br>3. Apply | Event tracking untuk paket ditemukan | High | PASS |
+| TC-FILTER-008 | Tracking Events — filter tanggal | Sudah login | 1. Buka /reporting/tracking/tracking-events<br>2. Set filter tanggal<br>3. Apply | Event tracking difilter sesuai tanggal | Medium | PASS |
+| TC-FILTER-009 | Loading — tab Pending/Scanned/Berangkat | Sudah login | 1. Buka /processing/loading<br>2. Klik tab Pending<br>3. Klik tab Scanned<br>4. Klik tab Berangkat | Setiap tab menampilkan data sesuai status | High | PASS |
+| TC-FILTER-010 | Loading — Export | Sudah login | 1. Buka /reporting/operational/loading<br>2. Klik tombol Export | File berhasil didownload | Medium | PASS |
+| TC-FILTER-011 | Laporan Keuangan — filter tanggal | Sudah login | 1. Buka /reporting/keuangan<br>2. Set filter tanggal<br>3. Apply | Laporan keuangan difilter sesuai tanggal | High | PASS |
+| TC-FILTER-012 | Laporan Keuangan — Export | Sudah login | 1. Buka /reporting/keuangan<br>2. Klik tombol Export | File berhasil didownload | High | PASS |
+| TC-FILTER-013 | Komisi Agenpos — filter & Export | Sudah login | 1. Buka /reporting/komisi<br>2. Set filter tanggal<br>3. Klik Export | Data komisi difilter dan didownload | Medium | PASS |
+| TC-FILTER-014 | Daftar Kedatangan — filter & Export | Sudah login | 1. Buka /reporting/kedatangan<br>2. Set filter tanggal<br>3. Klik Export | Data kedatangan difilter dan didownload | Medium | PASS |
+| TC-FILTER-015 | Collecting Daftar Transaksi — filter tanggal & resi | Sudah login | 1. Buka /collecting/daftar-transaksi<br>2. Set tanggal<br>3. Masukkan nomor resi<br>4. Klik Cari | Data transaksi difilter sesuai kriteria | High | PASS |
+| TC-FILTER-016 | Collecting Rekap Harian — search | Sudah login | 1. Buka /collecting/rekap-harian<br>2. Masukkan nomor rekap di search<br>3. Apply | Data rekap ditemukan | Medium | PASS |
+| TC-FILTER-017 | Collecting Audit Koreksi — search | Sudah login | 1. Buka /collecting/audit-koreksi<br>2. Masukkan No. Resi / Kode Booking<br>3. Apply | Data audit ditemukan | Medium | PASS |
+| TC-FILTER-018 | Collecting Pembatalan — search by resi | Sudah login | 1. Buka /collecting/pembatalan<br>2. Masukkan Nomor Resi<br>3. Apply | Data pembatalan ditemukan | Medium | PASS |
+| TC-FILTER-019 | Hitung Tarif — form kalkulasi | Sudah login | 1. Buka /referencing/tarif/calculate<br>2. Pilih customer<br>3. Pilih kode pos asal & tujuan<br>4. Isi berat<br>5. Klik Hitung Tarif | Tarif berhasil dikalkulasi; total biaya ditampilkan | High | PASS |
+| TC-FILTER-020 | Receiving — scan R7 | Sudah login | 1. Buka /processing/receiving<br>2. Masukkan nomor R7<br>3. Tombol Konfirmasi R7 aktif<br>4. Klik Konfirmasi | Paket R7 berhasil dikonfirmasi | High | PASS |
+
+---
+
 ## Ringkasan
 
 | Modul | Jumlah TC | High | Medium | Low |
@@ -162,6 +189,7 @@
 | ACCT | 4 | 0 | 1 | 3 |
 | DASH | 2 | 0 | 0 | 2 |
 | E2E | 4 | 2 | 2 | 0 |
-| **Total** | **66** | **24** | **33** | **9** |
+| FILTER | 20 | 8 | 12 | 0 |
+| **Total** | **86** | **32** | **45** | **9** |
 
 Catatan: status awal seluruh TC = `NOT VERIFIED`. Update tabel ini setiap eksekusi; simpan bukti sesuai konvensi penamaan.
