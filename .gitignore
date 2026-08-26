@@ -1,0 +1,27 @@
+# Kredensial & konfigurasi sensitif
+input/credential/*
+!input/credential/.gitkeep
+config/test-config.env
+*.env
+!config/test-config.example.env
+
+# Dependensi
+node_modules/
+
+# Output Playwright & artefak test
+reports/playwright/*
+!reports/playwright/.gitkeep
+test-results/
+playwright-report/
+.playwright/
+trace.zip
+
+# OS & editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Log sementara
+*.log
+tmp/

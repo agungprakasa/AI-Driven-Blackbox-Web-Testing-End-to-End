@@ -1,0 +1,19 @@
+{
+  "name": "freebuff-web-testing-template",
+  "version": "1.0.0",
+  "description": "Template standar AI-Driven Blackbox Web Testing (Playwright + Chromium)",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:functional": "playwright test tests/web/functional",
+    "test:boundary": "playwright test tests/web/boundary",
+    "test:abnormal": "playwright test tests/web/abnormal",
+    "test:security": "playwright test tests/web/security",
+    "test:e2e": "playwright test tests/web/e2e",
+    "report": "playwright show-report reports/playwright/html"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}
