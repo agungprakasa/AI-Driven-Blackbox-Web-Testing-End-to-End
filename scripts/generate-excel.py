@@ -399,7 +399,9 @@ def main() -> int:
     # =========================================================
     # SAVE
     # =========================================================
-    out = OUT_DIR / f"Laporan-API-Testing-{date.today().isoformat()}-v3.xlsx"
+    # Get endpoint name from test case
+    endpoint_name = "getfeeLnDiscountNew"
+    out = OUT_DIR / f"Laporan-{endpoint_name}-{date.today().isoformat()}.xlsx"
     wb.save(out)
     print(f"Laporan Excel dibuat: {out.relative_to(ROOT)}")
     print(f"Total: {total} test cases | PASS: {n_pass} | FAIL: {n_fail}")

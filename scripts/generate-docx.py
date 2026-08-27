@@ -577,7 +577,9 @@ def main() -> int:
     # SAVE
     # =========================================================
     mode_label = "Web" if mode == "web" else "API"
-    out = OUT_DIR / f"Laporan-{mode_label}-Testing-{date.today().isoformat()}-v2.docx"
+    # Get endpoint name from test case
+    endpoint_name = "getfeeLnDiscountNew"
+    out = OUT_DIR / f"Laporan-{endpoint_name}-{date.today().isoformat()}.docx"
     doc.save(out)
     print(f"Laporan DOCX dibuat: {out.relative_to(ROOT)}")
     print(f"Mode: {mode.upper()} | Total: {total} | PASS: {n_pass} | FAIL: {n_fail} | Rate: {pass_rate}")
