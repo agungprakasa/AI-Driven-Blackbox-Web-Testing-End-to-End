@@ -186,7 +186,7 @@ def add_header(doc, mode: str, title: str, modul: str):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate DOCX report")
-    parser.add_argument("--mode", choices=["api", "web"], default="api", help="Testing mode: api or web")
+    parser.add_argument("--mode", choices=["api", "web"], default="web", help="Testing mode: api or web")
     args = parser.parse_args()
     mode = args.mode
 
