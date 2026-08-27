@@ -33,9 +33,11 @@ def baca(path: Path) -> str:
 
 
 def load_screenshot(tc_id: str) -> Path | None:
+    """Load screenshot for a test case. Matches any PNG with TC-ID prefix."""
     for folder in [ROOT / "evidence" / "PASS", ROOT / "evidence" / "FAIL", ROOT / "evidence"]:
         if folder.exists():
-            for f in folder.glob(f"{tc_id}_screenshot.png"):
+            # Match: TC-AUTH-001_screenshot.png OR TC-AUTH-001_login_berhasil.png
+            for f in folder.glob(f"{tc_id}*.png"):
                 return f
     return None
 
@@ -408,7 +410,7 @@ def main() -> int:
     doc.add_heading("Kesimpulan & Rekomendasi", level=1)
     doc.add_paragraph(f"Dari {total} test case, {n_pass} PASS dan {n_fail} FAIL (pass rate {pass_rate}).")
 
-    out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}.docx"
+    out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}-final.docx"
     doc.save(out)
     print(f"Laporan DOCX dibuat: {out.relative_to(ROOT)}")
     return 0
