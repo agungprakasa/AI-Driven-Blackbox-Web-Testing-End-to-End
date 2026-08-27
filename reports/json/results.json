@@ -1,0 +1,2607 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\AI\\API-Testing-Template\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--list"
+    ],
+    "configFile": "D:\\AI\\API-Testing-Template\\playwright.config.ts",
+    "rootDir": "D:/AI/API-Testing-Template/tests/api",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/AI/API-Testing-Template/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "",
+        "name": "",
+        "testDir": "D:/AI/API-Testing-Template/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/json/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auto-generated.spec.ts",
+      "file": "auto-generated.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API Auto-Generated Tests",
+          "file": "auto-generated.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "1. POST 1.0.0/getfeeLnDiscountNew",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1f8d08b3d971c8bc5026-be1dc95478f0a374fd33",
+              "file": "auto-generated.spec.ts",
+              "line": 15,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "boundary\\tarif-boundary.spec.ts",
+      "file": "boundary/tarif-boundary.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "BOUNDARY VALUE TESTING — Tariff API",
+          "file": "boundary/tarif-boundary.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-B001: Weight minimum valid (1g)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-82cce519f167b4ecbfb0",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "TC-B002: Weight boundary (0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-61961c86a0434e64ade7",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 57,
+              "column": 7
+            },
+            {
+              "title": "TC-B003: Weight -1 (below minimum)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-62f525d75c558553f705",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 76,
+              "column": 7
+            },
+            {
+              "title": "TC-B004: Weight batas atas (30000g)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-828dbb47d3bc69eba80d",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 95,
+              "column": 7
+            },
+            {
+              "title": "TC-B005: Weight 30001g (just above 30kg)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-a8a568a57022bfc74e72",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 114,
+              "column": 7
+            },
+            {
+              "title": "TC-B006: Weight Maximum Integer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-a092020f2987b3a95486",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 134,
+              "column": 7
+            },
+            {
+              "title": "TC-B007: Dimensi = 0 (0x0x0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-4ece1d3a61743b14f9ca",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 157,
+              "column": 7
+            },
+            {
+              "title": "TC-B008: Dimensi minimum (1x1x1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-1df8c3fa62e1f3f49cc1",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 176,
+              "column": 7
+            },
+            {
+              "title": "TC-B009: Dimensi negatif (-1x-1x-1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-57d81087d463fedc1bd7",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 195,
+              "column": 7
+            },
+            {
+              "title": "TC-B010: Dimensi besar (100x100x100)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-c1cd07b8ffaceeb64181",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 214,
+              "column": 7
+            },
+            {
+              "title": "TC-B011: Dimensi Maximum Integer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-823eb95e59e13e60cbff",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 233,
+              "column": 7
+            },
+            {
+              "title": "TC-B012: Valuegoods = 0",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-f5821da440b43ce1827f",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 256,
+              "column": 7
+            },
+            {
+              "title": "TC-B013: Valuegoods = 1",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-a5e6f25dc9a02cb3b051",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 275,
+              "column": 7
+            },
+            {
+              "title": "TC-B014: Valuegoods negatif (-1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-31c796ed5907ccab3f87",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 294,
+              "column": 7
+            },
+            {
+              "title": "TC-B015: Valuegoods Maximum Integer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-917085a875e96d974092",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 313,
+              "column": 7
+            },
+            {
+              "title": "TC-B016: Semua string fields kosong",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-1ccaa709db2d41de163f",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 336,
+              "column": 7
+            },
+            {
+              "title": "TC-B017: String sangat panjang (1000 chars)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-23e87502a990c8dff443",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 367,
+              "column": 7
+            },
+            {
+              "title": "TC-B018: String 1 karakter",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-6ae258568fadaf3ae5b9",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 387,
+              "column": 7
+            },
+            {
+              "title": "TC-B019: Shipper zipcode 5 digit (10110)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-a433a0ab0bf4fd75def1",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 406,
+              "column": 7
+            },
+            {
+              "title": "TC-B020: Shipper zipcode 1 digit",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-414c929a287bdcaf2940",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 425,
+              "column": 7
+            },
+            {
+              "title": "TC-B021: Receiver zipcode 2 char (MY)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-2cc08a7bfdefaaaa09df",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 448,
+              "column": 7
+            },
+            {
+              "title": "TC-B022: Receiver zipcode 1 char",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-bd32941096eaaefcfdcf",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 467,
+              "column": 7
+            },
+            {
+              "title": "TC-B023: Receiver zipcode domestic (10110)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-63e4d4da8613c77d98a4",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 486,
+              "column": 7
+            },
+            {
+              "title": "TC-B024: Diameter = 0",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-3dddd9a56e3ad256694d",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 509,
+              "column": 7
+            },
+            {
+              "title": "TC-B025: Diameter besar (50)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "451b1c10fa2dd7902b99-4a9c2dce2dbdda9391a4",
+              "file": "boundary/tarif-boundary.spec.ts",
+              "line": 528,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e\\tarif-integration.spec.ts",
+      "file": "e2e/tarif-integration.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "INTEGRATION / E2E TESTING — Tariff API",
+          "file": "e2e/tarif-integration.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-E2E001: Domestic small package",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-17232bce1625dadf2c51",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E002: International package (MY)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-12a27a418d81d063abe6",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E003: Heavy package (15kg)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-1131ae36888a79cac87d",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 114,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E004: Cylindrical package (with diameter)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-98aad6e3971dd9173c5b",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 152,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E005: Sequential flow — 3 different packages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-69749dcbe6a7d4fe91de",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 190,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E006: Response berbeda untuk berat berbeda",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-9bd80a7c4d09550c6cf8",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 242,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E007: Domestic vs International tarif berbeda",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-7500de172837739933d8",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 279,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E008: Health check — API reachable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-88e0f5f8f4b565e6ffb7",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 317,
+              "column": 7
+            },
+            {
+              "title": "TC-E2E009: Timeout handling (10s)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4aabaf234dfd2ca4ddb5-d3393784d1814bf06faa",
+              "file": "e2e/tarif-integration.spec.ts",
+              "line": 341,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e\\tarif-performance.spec.ts",
+      "file": "e2e/tarif-performance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "PERFORMANCE TESTING — Tariff API",
+          "file": "e2e/tarif-performance.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-PF001: Single request baseline (< 2s)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-fab65116e1836bddd361",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC-PF002: 5 concurrent requests (< 5s total)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-dc3615afb7da9598b7eb",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 61,
+              "column": 7
+            },
+            {
+              "title": "TC-PF003: 10 sequential requests (avg < 2s)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-cf4d5608672f1f08220a",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 98,
+              "column": 7
+            },
+            {
+              "title": "TC-PF004: Response consistency (3x same input)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-ca0c5b74ff11c8c89ff1",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 140,
+              "column": 7
+            },
+            {
+              "title": "TC-PF005: Response time — minimal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-10d704e696ee538d83c5",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 180,
+              "column": 9
+            },
+            {
+              "title": "TC-PF005: Response time — with dimensions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-706707cba4c8bae7467c",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 180,
+              "column": 9
+            },
+            {
+              "title": "TC-PF005: Response time — heavy (10kg)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-d7618b8a72f8ee2ef7bf",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 180,
+              "column": 9
+            },
+            {
+              "title": "TC-PF005: Response time — high value",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6fcebf0c46e9a85ab539-1f06ced9ade45780951b",
+              "file": "e2e/tarif-performance.spec.ts",
+              "line": 180,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "functional\\api-crud.spec.ts",
+      "file": "functional/api-crud.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API CRUD Testing",
+          "file": "functional/api-crud.spec.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "CREATE — POST /items",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "bf2731ba253b9e5ddc66-1252c412937d1eaf308d",
+              "file": "functional/api-crud.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "READ — GET /items",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "bf2731ba253b9e5ddc66-f9035b66717e21704b19",
+              "file": "functional/api-crud.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "READ — GET /items/:id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "bf2731ba253b9e5ddc66-4220adce13ec02bafa58",
+              "file": "functional/api-crud.spec.ts",
+              "line": 67,
+              "column": 7
+            },
+            {
+              "title": "UPDATE — PUT /items/:id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "bf2731ba253b9e5ddc66-b2d59f9941e24888f8b5",
+              "file": "functional/api-crud.spec.ts",
+              "line": 94,
+              "column": 7
+            },
+            {
+              "title": "DELETE — DELETE /items/:id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "bf2731ba253b9e5ddc66-1f0314907552e79b83d9",
+              "file": "functional/api-crud.spec.ts",
+              "line": 124,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "functional\\tarif-data-validation.spec.ts",
+      "file": "functional/tarif-data-validation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "DATA VALIDATION TESTING — Tariff API",
+          "file": "functional/tarif-data-validation.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-DV001: Response harus JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-5a4793ed4c2a3a90f1b7",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC-DV002: Response body harus parseable JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-03b31bc5eac3a06ea91b",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 60,
+              "column": 7
+            },
+            {
+              "title": "TC-DV003: Response harus mengandung informasi tarif",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-e15877043fee25bbe666",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "TC-DV004: Tipe data response konsisten",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-e6fbd20f88ebe8242f49",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 121,
+              "column": 7
+            },
+            {
+              "title": "TC-DV005: Numeric fields harus number",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-b071bd6fc738977eab61",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 159,
+              "column": 7
+            },
+            {
+              "title": "TC-DV006: Currency/tarif harus positif",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-80f07381951cd2c59c04",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 195,
+              "column": 7
+            },
+            {
+              "title": "TC-DV007: Response tidak boleh kosong",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-ed6bd7d725df539b24c0",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 227,
+              "column": 7
+            },
+            {
+              "title": "TC-DV008: HTTP status code 200 untuk valid request",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-f0da2a1e7c9817c3d896",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 251,
+              "column": 7
+            },
+            {
+              "title": "TC-DV009: Response headers lengkap",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-5ef0a0b0ecfafad8fe2a",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 270,
+              "column": 7
+            },
+            {
+              "title": "TC-DV010: Zip combo — domestic-same",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-3de42a8a631228c6e79d",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 305,
+              "column": 9
+            },
+            {
+              "title": "TC-DV010: Zip combo — domestic-different",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-8e4ece73bffd6bd3b0ce",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 305,
+              "column": 9
+            },
+            {
+              "title": "TC-DV010: Zip combo — international-MY",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-cd7d868be8ea4e7cbb7f",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 305,
+              "column": 9
+            },
+            {
+              "title": "TC-DV010: Zip combo — international-SG",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-ec78ce8421bddc578fdf",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 305,
+              "column": 9
+            },
+            {
+              "title": "TC-DV010: Zip combo — country-ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "35ee4871f2d5d0351de3-b7b09f8474a8422cb10e",
+              "file": "functional/tarif-data-validation.spec.ts",
+              "line": 305,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "functional\\tarif-positive.spec.ts",
+      "file": "functional/tarif-positive.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "POSITIVE TESTING — Tariff API",
+          "file": "functional/tarif-positive.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-P001: Request valid standar",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-2f7e03a54650a5546c44",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC-P002: Weight dalam gram (1000g = 1kg)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-e60e476cf809b987ae53",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 64,
+              "column": 7
+            },
+            {
+              "title": "TC-P003: itemtypeid = \"1\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-4a9e4596c06c1e5816aa",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 95,
+              "column": 9
+            },
+            {
+              "title": "TC-P003: itemtypeid = \"2\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-8a343510bfcea4d2f163",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 95,
+              "column": 9
+            },
+            {
+              "title": "TC-P003: itemtypeid = \"3\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-40ecd3c4692bdec68948",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 95,
+              "column": 9
+            },
+            {
+              "title": "TC-P003: itemtypeid = \"0\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-74c66cde9d40a1843874",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 95,
+              "column": 9
+            },
+            {
+              "title": "TC-P004: desttypeid = \"0\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-8efca11a99e9d291fe53",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 123,
+              "column": 9
+            },
+            {
+              "title": "TC-P004: desttypeid = \"1\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-af9421441a410e1358d4",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 123,
+              "column": 9
+            },
+            {
+              "title": "TC-P004: desttypeid = \"2\"",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-20a62918435cf5f3cba1",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 123,
+              "column": 9
+            },
+            {
+              "title": "TC-P005: Domestic shipping (10110 → 10110)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-7ad5a906dba5264c4b54",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 149,
+              "column": 7
+            },
+            {
+              "title": "TC-P006: International shipping (10110 → MY)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-a6d58aa2a5e1bd7dbdbe",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 174,
+              "column": 7
+            },
+            {
+              "title": "TC-P007: Weight besar (10000g)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-2473713e277d83852144",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 199,
+              "column": 7
+            },
+            {
+              "title": "TC-P008: Dimensi paket (30x20x15 cm)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-616c98bcb98bfabac5a7",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 224,
+              "column": 7
+            },
+            {
+              "title": "TC-P009: Valuegoods tinggi (1000000)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-1cede20a35037ba53557",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 249,
+              "column": 7
+            },
+            {
+              "title": "TC-P010: Customerid terisi",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-8bae0a9d48091a4f9ead",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 274,
+              "column": 7
+            },
+            {
+              "title": "TC-P011: Response harus berupa JSON",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-911a732c223b33948220",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 299,
+              "column": 7
+            },
+            {
+              "title": "TC-P012: Response time < 5000ms",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "fb59fb4851a38173dc61-e4230c7c1e4ebd7a8d2f",
+              "file": "functional/tarif-positive.spec.ts",
+              "line": 328,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "negative\\tarif-negative.spec.ts",
+      "file": "negative/tarif-negative.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "NEGATIVE TESTING — Tariff API",
+          "file": "negative/tarif-negative.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-N001: Request body kosong {}",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-ae16329efe8ea12d8fa0",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "TC-N002: Request tanpa body",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-2e432b4e757ccd9d187e",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 62,
+              "column": 7
+            },
+            {
+              "title": "TC-N003: Weight negatif (-100)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-56699ec66d7fc84b6dc5",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 86,
+              "column": 7
+            },
+            {
+              "title": "TC-N004: Weight = 0",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-0dc812222a979248febd",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 112,
+              "column": 7
+            },
+            {
+              "title": "TC-N005: Weight string (\"abc\")",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-23dcb1c93fe68d8207a7",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 139,
+              "column": 7
+            },
+            {
+              "title": "TC-N006: Shipper zipcode kosong",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-93bf5cef19ddd3d5eeaf",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 165,
+              "column": 7
+            },
+            {
+              "title": "TC-N007: Receiver zipcode kosong",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-1278d1eda6af0eb6fe72",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 191,
+              "column": 7
+            },
+            {
+              "title": "TC-N008: Valuegoods negatif (-500)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-0541077180cb200b5ec2",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 217,
+              "column": 7
+            },
+            {
+              "title": "TC-N009: Field shipperzipcode hilang",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-9467f0315b9e1da20d60",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 243,
+              "column": 7
+            },
+            {
+              "title": "TC-N010: Invalid JSON format",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-7d7f81a14d0f1963ad29",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 270,
+              "column": 7
+            },
+            {
+              "title": "TC-N011: Tidak ada Content-Type header",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-d031bb966fe2486db79d",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 295,
+              "column": 7
+            },
+            {
+              "title": "TC-N012: Content-Type text/plain",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-94dbb9dc407aaad42aa5",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 321,
+              "column": 7
+            },
+            {
+              "title": "TC-N013: Extra fields tidak dikenal",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-b4560a2d3bea2869706c",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 347,
+              "column": 7
+            },
+            {
+              "title": "TC-N0014: Weight overflow (Number.MAX_SAFE_INTEGER)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-11b2ab036cdb57d3e5b0",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 374,
+              "column": 7
+            },
+            {
+              "title": "TC-N015: Weight float (1000.5)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-a1f2ffa4b5a459253ba9",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 400,
+              "column": 7
+            },
+            {
+              "title": "TC-N016: Shipper zipcode bukan angka (\"ABCDE\")",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-2be5c67bf4631f8fd31c",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 426,
+              "column": 7
+            },
+            {
+              "title": "TC-N017: Method GET (wrong HTTP method)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-e25f8ed37877211f191d",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 452,
+              "column": 7
+            },
+            {
+              "title": "TC-N018: Method PUT (wrong HTTP method)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-c002595925890c724e1e",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 476,
+              "column": 7
+            },
+            {
+              "title": "TC-N019: Endpoint tidak ada (typo URL)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-e463aafde5f5f4cf0fd3",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 500,
+              "column": 7
+            },
+            {
+              "title": "TC-N020: Array sebagai body (bukan object)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c6bac8187f934d255c4c-e67daccbf283374238fe",
+              "file": "negative/tarif-negative.spec.ts",
+              "line": 526,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "security\\tarif-security.spec.ts",
+      "file": "security/tarif-security.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "SECURITY TESTING — Tariff API",
+          "file": "security/tarif-security.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-S001: SQL Injection di shipperzipcode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-9fe33e8b5bd85d473b41",
+              "file": "security/tarif-security.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "TC-S002: SQL Injection di receiverzipcode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-01c0e0f2e5ff9fab73c3",
+              "file": "security/tarif-security.spec.ts",
+              "line": 58,
+              "column": 7
+            },
+            {
+              "title": "TC-S003: SQL Injection di customerid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-61d783147b3b984e1924",
+              "file": "security/tarif-security.spec.ts",
+              "line": 77,
+              "column": 7
+            },
+            {
+              "title": "TC-S004: XSS di customerid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-7b2ba5d88ed3f5166582",
+              "file": "security/tarif-security.spec.ts",
+              "line": 100,
+              "column": 7
+            },
+            {
+              "title": "TC-S005: XSS di shipperzipcode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-add39dbb811325d6c35a",
+              "file": "security/tarif-security.spec.ts",
+              "line": 125,
+              "column": 7
+            },
+            {
+              "title": "TC-S006: XSS event handler di receiverzipcode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-db35891236891b6526ea",
+              "file": "security/tarif-security.spec.ts",
+              "line": 144,
+              "column": 7
+            },
+            {
+              "title": "TC-S007: CRLF Injection di Content-Type",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-1caaa801541f35db84d6",
+              "file": "security/tarif-security.spec.ts",
+              "line": 167,
+              "column": 7
+            },
+            {
+              "title": "TC-S008: X-Forwarded-For spoofing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-39e6a8da283f4954bfbd",
+              "file": "security/tarif-security.spec.ts",
+              "line": 193,
+              "column": 7
+            },
+            {
+              "title": "TC-S009: Path traversal di customerid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-f3f0d39fcba1dd6703e3",
+              "file": "security/tarif-security.spec.ts",
+              "line": 220,
+              "column": 7
+            },
+            {
+              "title": "TC-S010: Invalid Transfer-Encoding header",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-f3cac58a57a47449f041",
+              "file": "security/tarif-security.spec.ts",
+              "line": 243,
+              "column": 7
+            },
+            {
+              "title": "TC-S011: Oversized Content-Length",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-70b884af473a8f986b79",
+              "file": "security/tarif-security.spec.ts",
+              "line": 266,
+              "column": 7
+            },
+            {
+              "title": "TC-S012: Request tanpa auth token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-0135c175e7e6e9ce9931",
+              "file": "security/tarif-security.spec.ts",
+              "line": 293,
+              "column": 7
+            },
+            {
+              "title": "TC-S013: Invalid Bearer token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-16ec7025b96c0286e488",
+              "file": "security/tarif-security.spec.ts",
+              "line": 316,
+              "column": 7
+            },
+            {
+              "title": "TC-S014: Malformed Authorization header",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-659668fc87dd263cbace",
+              "file": "security/tarif-security.spec.ts",
+              "line": 339,
+              "column": 7
+            },
+            {
+              "title": "TC-S015: XXE attack via XML Content-Type",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-2cc7a1d411fbc23856be",
+              "file": "security/tarif-security.spec.ts",
+              "line": 366,
+              "column": 7
+            },
+            {
+              "title": "TC-S016: Nested JSON objects",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-41a4e66de846809b15bc",
+              "file": "security/tarif-security.spec.ts",
+              "line": 392,
+              "column": 7
+            },
+            {
+              "title": "TC-S017: Very large JSON payload (1MB)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-71bd4065f6eabe76bc23",
+              "file": "security/tarif-security.spec.ts",
+              "line": 420,
+              "column": 7
+            },
+            {
+              "title": "TC-S018: Tidak ada stack trace di error response",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-aa2b92314c5c3fb8e12d",
+              "file": "security/tarif-security.spec.ts",
+              "line": 453,
+              "column": 7
+            },
+            {
+              "title": "TC-S019: Server header tidak bocorkan versi",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-c3af846a5d73a6773965",
+              "file": "security/tarif-security.spec.ts",
+              "line": 480,
+              "column": 7
+            },
+            {
+              "title": "TC-S020: CORS check",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "350284a9776897822f71-ce015619dcc881ce2534",
+              "file": "security/tarif-security.spec.ts",
+              "line": 508,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-27T04:16:12.173Z",
+    "duration": 168.29399999999987,
+    "expected": 0,
+    "skipped": 119,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,4 @@
+curl -X POST "http://10.29.41.37:8280/test/1.0.0/getfeeLnDiscountNew" ^
+  -H "Accept: application/json" ^
+  -H "Content-Type: application/json" ^
+  -d "{\"customerid\":\"\",\"desttypeid\":\"0\",\"itemtypeid\":\"1\",\"shipperzipcode\":\"10110\",\"receiverzipcode\":\"MY\",\"weight\":1000,\"length\":0,\"width\":0,\"height\":0,\"diameter\":0,\"valuegoods\":7375}"

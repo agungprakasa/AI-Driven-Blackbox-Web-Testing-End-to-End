@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>API Test - TC-S004</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: #f0f2f5; }
+        .container { max-width: 960px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 24px 30px; }
+        .header h1 { margin: 0; font-size: 22px; font-weight: 600; }
+        .header .meta { opacity: 0.85; margin-top: 6px; font-size: 14px; }
+        .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; }
+        .badge-pass { background: #28a745; color: white; }
+        .badge-fail { background: #dc3545; color: white; }
+        .content { padding: 24px 30px; }
+        .section { margin-bottom: 20px; }
+        .section-title { font-size: 15px; font-weight: 700; color: #333; padding-bottom: 8px; border-bottom: 2px solid #667eea; margin-bottom: 12px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { border: 1px solid #e8e8e8; border-radius: 8px; padding: 16px; background: #fafafa; }
+        .card-label { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 6px; }
+        .card-value { font-size: 14px; color: #333; }
+        .method-badge { display: inline-block; background: #28a745; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 13px; margin-right: 6px; }
+        .url { font-family: 'Courier New', monospace; font-size: 13px; color: #6610f2; word-break: break-all; }
+        pre { background: #1e1e2e; color: #cdd6f4; padding: 16px; border-radius: 8px; font-size: 12px; line-height: 1.5; overflow-x: auto; white-space: pre-wrap; word-break: break-word; margin: 0; }
+        .http-status { font-size: 48px; font-weight: 800; color: #dc3545; line-height: 1; }
+        .http-label { font-size: 13px; color: #888; margin-top: 4px; }
+        .timestamp { font-size: 12px; color: #aaa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 API Test Evidence</h1>
+            <div class="meta">
+                <span class="badge badge-fail">FAIL</span>
+                &nbsp;&nbsp;TC-S004 — XSS Payload di customerid
+            </div>
+            <div class="meta" style="margin-top:4px;">Security Testing &nbsp;|&nbsp; Expected: Status 4xx (reject XSS)</div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">📤 Request</div>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-label">Endpoint</div>
+                        <div class="card-value">
+                            <span class="method-badge">POST</span>
+                            <span class="url">http://10.29.41.37:8280/test/1.0.0/getfeeLnDiscountNew</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Response Time</div>
+                        <div class="card-value" style="font-size:20px;font-weight:700;">57ms</div>
+                    </div>
+                </div>
+                <div style="margin-top:12px;">
+                    <div class="card-label" style="margin-bottom:6px;">Request Body (JSON)</div>
+                    <pre>{
+  "customerid": "<script>alert('xss')</script>",
+  "desttypeid": "0",
+  "itemtypeid": "1",
+  "shipperzipcode": "10110",
+  "receiverzipcode": "MY",
+  "weight": 1000,
+  "length": 0,
+  "width": 0,
+  "height": 0,
+  "diameter": 0,
+  "valuegoods": 7375
+}</pre>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">📥 Response</div>
+                <div class="grid">
+                    <div class="card" style="text-align:center;">
+                        <div class="card-label">HTTP Status</div>
+                        <div class="http-status">500</div>
+                        <div class="http-label">Error</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-label">Content-Type</div>
+                        <div class="card-value" style="font-family:monospace;">application/json; charset=utf-8</div>
+                    </div>
+                </div>
+                <div style="margin-top:12px;">
+                    <div class="card-label" style="margin-bottom:6px;">Response Body (JSON)</div>
+                    <pre>{
+  "error_detail": "",
+  "error_message": "org.apache.synapse.SynapseException: Error while building message. Error while building Passthrough stream\n\tat org.apache.synapse.mediators.AbstractMediator.handleException(AbstractMediator.java:367)\n\tat org.apache.synapse.mediators.AbstractListMediator.buildMessage(AbstractListMediator.java:147)\n\tat org.apache.synapse.mediators.AbstractListMediator.mediate(AbstractListMediator.java:94)\n\tat org.apache.synapse.mediators.base.SequenceMediator.mediate(SequenceMediator.java:260)\n\tat org.apache.synapse.core.axis2.Axis2SynapseEnvironment.mediateFromContinuationStateStack(Axis2SynapseEnvironment.java:774)\n\tat org.apache.synapse.core.axis2.Axis2SynapseEnvironment.injectMessage(Axis2SynapseEnvironment.java:281)\n\tat org.apache.synapse.core.ax
+...(truncated)</pre>
+                </div>
+            </div>
+
+            <div class="timestamp" style="text-align:center; padding-top:12px; border-top:1px solid #eee;">
+                2026-08-27T05:16:51.499Z — AI-Driven API Testing 🤖
+            </div>
+        </div>
+    </div>
+</body>
+</html>

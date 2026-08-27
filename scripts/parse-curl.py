@@ -36,10 +36,10 @@ def parse_curl(curl_cmd: str) -> dict:
     elif '-d ' in curl_cmd or '--data' in curl_cmd:
         result["method"] = "POST"
 
-    # Extract URL
-    url_match = re.search(r"curl\s+['\"]?(https?://[^'\"\s]+)", curl_cmd)
+    # Extract URL (skip -X METHOD and other flags before URL)
+    url_match = re.search(r"https?://[^'\"\s]+", curl_cmd)
     if url_match:
-        result["url"] = url_match.group(1)
+        result["url"] = url_match.group(0)
     else:
         # Try URL without protocol
         url_match = re.search(r"curl\s+['\"]?(/[^\s'\"-]+)", curl_cmd)
@@ -53,12 +53,16 @@ def parse_curl(curl_cmd: str) -> dict:
             key, value = h.split(':', 1)
             result["headers"][key.strip()] = value.strip()
 
-    # Extract body
-    body_match = re.search(r"-d\s+['\"](.+?)['\"]", curl_cmd, re.DOTALL)
+    # Extract body (everything after -d or --data to end of line)
+    body_match = re.search(r"-d\s+(.+)$", curl_cmd, re.MULTILINE)
     if not body_match:
-        body_match = re.search(r"--data\s+['\"](.+?)['\"]", curl_cmd, re.DOTALL)
+        body_match = re.search(r"--data\s+(.+)$", curl_cmd, re.MULTILINE)
     if body_match:
-        result["body"] = body_match.group(1)
+        raw = body_match.group(1).strip()
+        # Remove surrounding quotes if present
+        if (raw.startswith("'") and raw.endswith("'")) or (raw.startswith('"') and raw.endswith('"')):
+            raw = raw[1:-1]
+        result["body"] = raw
 
     # Extract description (comment before curl)
     return result
@@ -119,21 +123,21 @@ def generate_test_spec(commands: list[dict], output_path: Path):
         url_parts = url.rstrip('/').split('/')
         test_name = f"{method} {'/'.join(url_parts[-2:])}" if len(url_parts) >= 2 else f"{method} {url}"
 
-        lines.append(f"  test('{i}. {test_name}', async ({{ request }}) => {{")
-        lines.append(f"    const response = await request.{method.lower()}('{url}', {{")
-        lines.append(f"      headers: getHeaders(),")
+        lines.append("  test('%d. %s', async ({ request }) => {" % (i, test_name))
+        lines.append("    const response = await request.%s('%s', {" % (method.lower(), url))
+        lines.append("      headers: getHeaders(),")
 
         if cmd["body"]:
-            lines.append(f"      data: {cmd['body']},")
+            lines.append("      data: %s," % cmd['body'])
 
-        lines.append(f"    });")
-        lines.append(f"")
-        lines.append(f"    expect(response.status()).toBeLessThan(500);")
-        lines.append(f"    const body = await response.json();")
-        lines.append(f"    console.log('Status:', response.status());")
-        lines.append(f"    console.log('Response:', JSON.stringify(body).substring(0, 200));")
-        lines.append(f"  }});")
-        lines.append(f"")
+        lines.append("    });")
+        lines.append("")
+        lines.append("    expect(response.status()).toBeLessThan(500);")
+        lines.append("    const body = await response.json();")
+        lines.append("    console.log('Status:', response.status());")
+        lines.append("    console.log('Response:', JSON.stringify(body).substring(0, 200));")
+        lines.append("  });")
+        lines.append("")
 
     lines.append("});")
 

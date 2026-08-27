@@ -12,6 +12,7 @@
     "validate": "python scripts/validate-report.py"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.52.0",
+    "dotenv": "^17.4.2"
   }
 }

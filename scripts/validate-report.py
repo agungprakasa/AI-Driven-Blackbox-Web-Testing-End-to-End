@@ -25,7 +25,7 @@ REQUIRED_DOCS = [
     "final-summary.md",
 ]
 
-TC_ID_RE = re.compile(r"TC-[A-Z]+-\d{3}")
+TC_ID_RE = re.compile(r"TC-[A-Z]+-?\d{3}")
 STATUS_RE = re.compile(r"\b(PASS|FAIL|NOT VERIFIED|BLOCKED)\b", re.IGNORECASE)
 
 
