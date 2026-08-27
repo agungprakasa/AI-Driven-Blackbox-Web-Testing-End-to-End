@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Generator laporan Excel QA — membaca docs/test-case.md & docs/defect-list.md,
-menghasilkan laporan .xlsx di reports/excel/.
+"""Generator laporan Excel QA — Ipos5 Dev
+Format: Dropdown status, History Perbaikan, Formula otomatis.
 
 Usage:
     python scripts/generate-excel.py
@@ -14,6 +14,7 @@ from pathlib import Path
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils import get_column_letter
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -21,181 +22,305 @@ if hasattr(sys.stdout, "reconfigure"):
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "reports" / "excel"
-
 TARGET_APP = "Ipos5 Courier Core System (https://ipos-dev.posindonesia.co.id)"
 
-THIN = Side(style="thin", color="CCCCCC")
+THIN = Side(style="thin", color="AAAAAA")
 BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 HEADER_FILL = PatternFill("solid", fgColor="1F4E78")
-HEADER_FONT = Font(bold=True, color="FFFFFF")
-STATUS_FILL = {
-    "PASS": PatternFill("solid", fgColor="C6EFCE"),
-    "FAIL": PatternFill("solid", fgColor="FFC7CE"),
-    "NOT VERIFIED": PatternFill("solid", fgColor="D9D9D9"),
-    "BLOCKED": PatternFill("solid", fgColor="FFE699"),
-}
-STATUS_FONT = {
-    "PASS": Font(color="006100", bold=True),
-    "FAIL": Font(color="9C0006", bold=True),
-}
+HEADER_FONT = Font(bold=True, color="FFFFFF", size=10, name="Calibri")
+CATEGORY_FILL = PatternFill("solid", fgColor="D6E4F0")
+CATEGORY_FONT = Font(bold=True, size=10, name="Calibri")
+OK_FILL = PatternFill("solid", fgColor="C6EFCE")
+OK_FONT = Font(color="006100", bold=True, size=10, name="Calibri")
+NOK_FILL = PatternFill("solid", fgColor="FFC7CE")
+NOK_FONT = Font(color="9C0006", bold=True, size=10, name="Calibri")
+NORMAL_FONT = Font(size=10, name="Calibri")
+BOLD_FONT = Font(bold=True, size=10, name="Calibri")
+DONE_FILL = PatternFill("solid", fgColor="C6EFCE")
+DONE_FONT = Font(color="006100", size=10, name="Calibri")
+OPEN_FILL = PatternFill("solid", fgColor="FFC7CE")
+OPEN_FONT = Font(color="9C0006", size=10, name="Calibri")
 
 
-def baca_baris_tabel(path: Path, awal_id: str) -> list[list[str]]:
-    """Ambil baris tabel markdown yang sel pertamanya diawali awal_id."""
-    if not path.exists():
-        return []
-    rows = []
-    for line in path.read_text(encoding="utf-8").splitlines():
+def baca(path: Path) -> str:
+    return path.read_text(encoding="utf-8") if path.exists() else ""
+
+
+def parse_tests(tc_teks: str) -> list[dict]:
+    tests = []
+    for line in tc_teks.splitlines():
         s = line.strip()
-        if s.startswith("|") and re.match(rf"^\|\s*{awal_id}\b", s):
-            sel = [c.strip() for c in s.strip("|").split("|")]
-            rows.append(sel)
-    return rows
+        if s.startswith("|") and re.match(r"^\|\s*TC-[A-Z0-9]+-\d{3}\b", s):
+            cols = [c.strip() for c in s.strip("|").split("|")]
+            if len(cols) < 7:
+                continue
+            m = re.match(r"TC-([A-Z0-9]+)-", cols[0])
+            tests.append({
+                "id": cols[0], "judul": cols[1],
+                "langkah": re.sub(r"\s*<br\s*/?>\s*", " ", cols[3]),
+                "expected": re.sub(r"\s*<br\s*/?>\s*", " ", cols[4]),
+                "modul": m.group(1) if m else "UNKNOWN",
+                "prioritas": cols[5], "status": cols[6].upper(),
+            })
+    return tests
 
 
-def cari_bukti(tc_id: str) -> str:
-    for folder in ("PASS", "FAIL"):
-        d = ROOT / "evidence" / folder
-        if d.exists():
-            for f in sorted(d.glob(f"{tc_id}_*")):
-                return f"evidence/{folder}/{f.name}"
-    # TC-E2E-003 (regresi): artefak laporan Playwright
-    if tc_id == "TC-E2E-003" and (ROOT / "reports" / "playwright" / "results.json").exists():
-        return "reports/playwright/results.json (+ html)"
-    return "-"
-
-
-def style_header(ws, kolom: int) -> None:
-    for c in range(1, kolom + 1):
-        cell = ws.cell(row=1, column=c)
-        cell.fill = HEADER_FILL
-        cell.font = HEADER_FONT
-        cell.border = BORDER
-        cell.alignment = Alignment(horizontal="center", vertical="center")
-    ws.freeze_panes = "A2"
-
-
-def auto_width(ws, widths: dict[int, int]) -> None:
-    for col, w in widths.items():
-        ws.column_dimensions[get_column_letter(col)].width = w
+def get_category(tc_id: str) -> str:
+    modul_map = {
+        "AUTH": "Autentikasi & Sesi", "PROC": "Processing",
+        "COLL": "Collecting", "REPO": "Reporting", "TRCK": "Tracking",
+        "SETT": "Settings", "MODL": "Modules", "ACCT": "Account",
+        "DASH": "Dashboard", "FILTER": "Filter & Export", "E2E": "End-to-End",
+    }
+    m = re.match(r"TC-([A-Z0-9]+)-", tc_id)
+    if m:
+        return modul_map.get(m.group(1), m.group(1))
+    return "Lainnya"
 
 
 def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # --- Parse data ---
-    tc_rows = baca_baris_tabel(ROOT / "docs" / "test-case.md", r"TC-[A-Z0-9]+-\d{3}")
-    defect_rows = baca_baris_tabel(ROOT / "docs" / "defect-list.md", r"DEF-\d+")
+    tc_teks = baca(ROOT / "docs" / "test-case.md")
+    defect_teks = baca(ROOT / "docs" / "defect-list.md")
 
-    tests = []
-    for sel in tc_rows:
-        if len(sel) < 7:
-            continue
-        tc_id, judul, _pre, langkah, expected, prioritas, status = sel[:7]
-        modul = re.match(r"TC-([A-Z0-9]+)-", tc_id)
-        tests.append({
-            "id": tc_id,
-            "judul": re.sub(r"<br\s*/?>", " ", judul),
-            "langkah": re.sub(r"\s*<br\s*/?>\s*", " ", langkah),
-            "expected": re.sub(r"\s*<br\s*/?>\s*", " ", expected),
-            "modul": modul.group(1) if modul else "-",
-            "prioritas": prioritas,
-            "status": status.upper(),
-            "bukti": cari_bukti(tc_id),
-        })
+    tests = parse_tests(tc_teks)
+    if not tests:
+        print("ERROR: Tidak ada test case ditemukan")
+        return 1
 
     total = len(tests)
     n_pass = sum(1 for t in tests if t["status"] == "PASS")
     n_fail = sum(1 for t in tests if t["status"] == "FAIL")
-    n_nv = sum(1 for t in tests if t["status"] == "NOT VERIFIED")
-    n_blocked = sum(1 for t in tests if t["status"] == "BLOCKED")
-    dieksekusi = total - n_nv - n_blocked
-    pass_rate = f"{(n_pass / dieksekusi * 100):.1f}%" if dieksekusi else "-"
+    defect_count = len([l for l in defect_teks.splitlines()
+                        if l.strip().startswith("|") and re.match(r"^\|\s*DEF-\d+", l.strip())])
 
     wb = Workbook()
+    today = date.today().strftime("%d/%m/%Y")
 
-    # --- Sheet 1: Ringkasan ---
+    # Sheet 1: Ringkasan
     ws = wb.active
     ws.title = "Ringkasan"
-    ringkasan = [
-        ("LAPORAN PENGUJIAN QA — AI-DRIVEN BLACKBOX WEB TESTING", ""),
+    ws.sheet_properties.tabColor = "1F4E78"
+
+    ht = "'Hasil Test'"
+    hist = "'History Perbaikan'"
+    sf = f"{ht}!F:F"
+    sp = f"{ht}!H:H"
+
+    ringkasan_data = [
+        ("LAPORAN PENGUJIAN QA — IPOS5", ""),
+        ("", ""),
+        ("Informasi Umum", ""),
+        ("Tanggal Laporan", today),
         ("Target Aplikasi", TARGET_APP),
-        ("Tanggal Laporan", date.today().isoformat()),
-        ("Environment", "public-demo, Chromium headless 1920x1080, Playwright"),
+        ("Penguji", "Agung Prakasa"),
         ("", ""),
-        ("Total Test Case", total),
-        ("PASS", n_pass),
-        ("FAIL", n_fail),
-        ("BLOCKED", n_blocked),
-        ("NOT VERIFIED", n_nv),
-        ("Pass Rate (dari yang dieksekusi)", pass_rate),
+        ("METRIK PENGUJIAN", "NILAI"),
+        ("Total Test Case", f"=COUNTA({ht}!B:B)-1"),
+        ("Status OK", f'=COUNTIF({sf},"OK")'),
+        ("Status NOK", f'=COUNTIF({sf},"NOK")'),
+        ("Status ON TEST", f'=COUNTIF({sf},"ON TEST")'),
+        ("Pass Rate", "=IF(B10>0,B10/(B10+B11),\"-\")"),
         ("", ""),
-        ("Total Defect Terdokumentasi", len(defect_rows)),
-        ("Referensi Dokumen", "docs/test-case.md, docs/defect-list.md, docs/security-findings.md"),
+        ("METRIK PERBAIKAN", "NILAI"),
+        ("Total Perlu Perbaikan", f'=COUNTIF({sf},"NOK")'),
+        ("Sudah Diperbaiki", f'=COUNTIF({sp},"DONE")'),
+        ("Belum Diperbaiki", f'=COUNTIF({sp},"OPEN")'),
+        ("Progress Perbaikan", "=IF(B16>0,B17/B16,\"-\")"),
+        ("", ""),
+        ("DEFECT", "Jumlah"),
+        ("Total Defect", defect_count),
     ]
-    for r, (label, nilai) in enumerate(ringkasan, start=1):
+    for r, (label, nilai) in enumerate(ringkasan_data, start=1):
         a = ws.cell(row=r, column=1, value=label)
         b = ws.cell(row=r, column=2, value=nilai)
-        a.border = BORDER; b.border = BORDER
+        a.border = BORDER
+        b.border = BORDER
         if r == 1:
-            a.font = Font(bold=True, size=13)
+            a.font = Font(bold=True, size=14, name="Calibri")
+        elif label in ("Informasi Umum", "METRIK PENGUJIAN", "METRIK PERBAIKAN", "DEFECT"):
+            a.font = HEADER_FONT
+            b.font = HEADER_FONT
+            a.fill = HEADER_FILL
+            b.fill = HEADER_FILL
         elif label:
-            a.font = Font(bold=True)
-    auto_width(ws, {1: 34, 2: 60})
+            a.font = BOLD_FONT
+            b.font = NORMAL_FONT
+            if label in ("Pass Rate", "Progress Perbaikan"):
+                b.number_format = '0.0%'
+        a.alignment = Alignment(vertical="center")
+        b.alignment = Alignment(vertical="center")
 
-    # --- Sheet 2: Hasil Test ---
+    ws.column_dimensions["A"].width = 30
+    ws.column_dimensions["B"].width = 40
+
+    # Sheet 2: Hasil Test
     ws2 = wb.create_sheet("Hasil Test")
-    headers = ["Test Case ID", "Judul", "Langkah Pengujian", "Expected Result", "Modul", "Priority", "Status", "Bukti"]
-    for c, h in enumerate(headers, start=1):
-        ws2.cell(row=1, column=c, value=h)
-    for r, t in enumerate(tests, start=2):
-        ws2.cell(row=r, column=1, value=t["id"])
-        ws2.cell(row=r, column=2, value=t["judul"])
-        for col, key in ((3, "langkah"), (4, "expected")):
-            cell = ws2.cell(row=r, column=col, value=t[key])
-            cell.alignment = Alignment(wrap_text=True, vertical="top")
-        ws2.cell(row=r, column=5, value=t["modul"])
-        ws2.cell(row=r, column=6, value=t["prioritas"])
-        sc = ws2.cell(row=r, column=7, value=t["status"])
-        sc.fill = STATUS_FILL.get(t["status"], PatternFill())
-        sc.font = STATUS_FONT.get(t["status"], Font())
-        sc.alignment = Alignment(horizontal="center")
-        ws2.cell(row=r, column=8, value=t["bukti"])
-        for c in range(1, 9):
-            ws2.cell(row=r, column=c).border = BORDER
-    style_header(ws2, 8)
-    auto_width(ws2, {1: 14, 2: 38, 3: 52, 4: 48, 5: 9, 6: 10, 7: 14, 8: 46})
+    ws2.sheet_properties.tabColor = "4472C4"
 
-    # --- Sheet 3: Defect ---
-    ws3 = wb.create_sheet("Defect")
-    if defect_rows and len(defect_rows[0]) >= 8:
-        headers3 = ["ID", "Judul", "Modul", "Severity", "Priority", "Test Case", "Status", "Bukti"]
-        for c, h in enumerate(headers3, start=1):
-            ws3.cell(row=1, column=c, value=h)
-        for r, sel in enumerate(defect_rows, start=2):
-            sev = sel[3].upper()
-            for c, val in enumerate(sel[:8], start=1):
-                cell = ws3.cell(row=r, column=c, value=val)
+    headers = ["No.", "ID", "Butir Uji", "Langkah Pengujian",
+               "Hasil\nPengujian", "Status\nPengujian", "Keterangan",
+               "Status\nPerbaikan", "Tgl Ditemukan", "Tgl Diperbaiki", "Oleh"]
+    col_widths = [6, 14, 25, 40, 22, 12, 28, 14, 14, 14, 14]
+
+    for c, h in enumerate(headers, start=1):
+        cell = ws2.cell(row=1, column=c, value=h)
+        cell.font = HEADER_FONT
+        cell.fill = HEADER_FILL
+        cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        cell.border = BORDER
+    ws2.row_dimensions[1].height = 40
+    for c, w in enumerate(col_widths, start=1):
+        ws2.column_dimensions[get_column_letter(c)].width = w
+
+    dv_status = DataValidation(type="list", formula1='"OK,NOK,ON TEST"', allow_blank=True)
+    ws2.add_data_validation(dv_status)
+    dv_perbaikan = DataValidation(type="list", formula1='"OPEN,DONE,WIP,N/A"', allow_blank=True)
+    ws2.add_data_validation(dv_perbaikan)
+
+    categories = []
+    current_cat = None
+    for t in tests:
+        cat = get_category(t["id"])
+        if cat != current_cat:
+            categories.append({"name": cat, "tests": []})
+            current_cat = cat
+        categories[-1]["tests"].append(t)
+
+    row_num = 2
+    no_counter = 0
+
+    for cat_info in categories:
+        cat_name = cat_info["name"]
+        cat_tests = cat_info["tests"]
+
+        ws2.merge_cells(start_row=row_num, start_column=1, end_row=row_num, end_column=11)
+        cat_cell = ws2.cell(row=row_num, column=1, value=cat_name)
+        cat_cell.font = CATEGORY_FONT
+        cat_cell.fill = CATEGORY_FILL
+        for c in range(1, 12):
+            ws2.cell(row=row_num, column=c).border = BORDER
+            ws2.cell(row=row_num, column=c).fill = CATEGORY_FILL
+        ws2.row_dimensions[row_num].height = 22
+        row_num += 1
+
+        for t in cat_tests:
+            no_counter += 1
+            tc_id = t["id"]
+            status = t["status"]
+            ok_nok = "OK" if status == "PASS" else "NOK"
+            keterangan = "P: Perlu perbaikan" if status == "FAIL" else ""
+            status_perbaikan = "DONE" if status == "PASS" else "OPEN"
+
+            ws2.cell(row=row_num, column=1, value=no_counter).alignment = Alignment(horizontal="center", vertical="center")
+            ws2.cell(row=row_num, column=2, value=tc_id).alignment = Alignment(horizontal="center", vertical="center")
+            ws2.cell(row=row_num, column=3, value=t["judul"]).alignment = Alignment(vertical="center", wrap_text=True)
+            ws2.cell(row=row_num, column=4, value=t["langkah"]).alignment = Alignment(vertical="center", wrap_text=True)
+            ws2.cell(row=row_num, column=5, value=f"Status: {status}").alignment = Alignment(vertical="center", wrap_text=True)
+
+            sc = ws2.cell(row=row_num, column=6, value=ok_nok)
+            sc.alignment = Alignment(horizontal="center", vertical="center")
+            sc.fill, sc.font = (OK_FILL, OK_FONT) if ok_nok == "OK" else (NOK_FILL, NOK_FONT)
+            dv_status.add(sc)
+
+            ws2.cell(row=row_num, column=7, value=keterangan).alignment = Alignment(vertical="center", wrap_text=True)
+
+            sp_cell = ws2.cell(row=row_num, column=8, value=status_perbaikan)
+            sp_cell.alignment = Alignment(horizontal="center", vertical="center")
+            sp_cell.fill, sp_cell.font = (DONE_FILL, DONE_FONT) if status_perbaikan == "DONE" else (OPEN_FILL, OPEN_FONT)
+            dv_perbaikan.add(sp_cell)
+
+            ws2.cell(row=row_num, column=9, value=today).alignment = Alignment(horizontal="center", vertical="center")
+            ws2.cell(row=row_num, column=10, value=today if status == "PASS" else "").alignment = Alignment(horizontal="center", vertical="center")
+            ws2.cell(row=row_num, column=11, value="Agung Prakasa" if status == "PASS" else "").alignment = Alignment(horizontal="center", vertical="center")
+
+            for c in range(1, 12):
+                cell = ws2.cell(row=row_num, column=c)
+                if c not in (6, 8):
+                    cell.font = NORMAL_FONT
                 cell.border = BORDER
-                cell.alignment = Alignment(wrap_text=True, vertical="top")
-            ws3.cell(row=r, column=4).fill = STATUS_FILL.get(sev, PatternFill())
-            ws3.cell(row=r, column=4).font = STATUS_FONT.get(sev, Font())
-        style_header(ws3, 8)
-        auto_width(ws3, {1: 10, 2: 48, 3: 16, 4: 11, 5: 10, 6: 14, 7: 9, 8: 50})
-    else:
-        ws3.cell(row=1, column=1, value="Tidak ada defect terdokumentasi.")
+            ws2.row_dimensions[row_num].height = 30
+            row_num += 1
+
+    ws2.freeze_panes = "A2"
+
+    # Sheet 3: History Perbaikan
+    ws3 = wb.create_sheet("History Perbaikan")
+    ws3.sheet_properties.tabColor = "FFC000"
+
+    h_headers = ["Tanggal", "Test Case ID", "Butir Uji", "Kategori",
+                 "Status Sebelum", "Status Sesudah", "Tindakan", "Oleh", "Keterangan"]
+    h_widths = [14, 14, 25, 18, 14, 14, 16, 16, 35]
+
+    for c, h in enumerate(h_headers, start=1):
+        cell = ws3.cell(row=1, column=c, value=h)
+        cell.font = HEADER_FONT
+        cell.fill = PatternFill("solid", fgColor="BF8F00")
+        cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        cell.border = BORDER
+    ws3.row_dimensions[1].height = 35
+    for c, w in enumerate(h_widths, start=1):
+        ws3.column_dimensions[get_column_letter(c)].width = w
+
+    hist_row = 2
+    for t in tests:
+        tc_id = t["id"]
+        ok_nok = "OK" if t["status"] == "PASS" else "NOK"
+        kategori = get_category(tc_id)
+
+        ws3.cell(row=hist_row, column=1, value=today).alignment = Alignment(horizontal="center", vertical="center")
+        ws3.cell(row=hist_row, column=2, value=tc_id).alignment = Alignment(horizontal="center", vertical="center")
+        ws3.cell(row=hist_row, column=3, value=t["judul"]).alignment = Alignment(vertical="center", wrap_text=True)
+        ws3.cell(row=hist_row, column=4, value=kategori).alignment = Alignment(horizontal="center", vertical="center")
+        ws3.cell(row=hist_row, column=5, value="-").alignment = Alignment(horizontal="center", vertical="center")
+        ws3.cell(row=hist_row, column=6, value=ok_nok).alignment = Alignment(horizontal="center", vertical="center")
+        ws3.cell(row=hist_row, column=7, value="Initial Test").alignment = Alignment(horizontal="center", vertical="center")
+        ws3.cell(row=hist_row, column=8, value="Agung Prakasa").alignment = Alignment(horizontal="center", vertical="center")
+        ws3.cell(row=hist_row, column=9, value="Pengujian awal").alignment = Alignment(vertical="center", wrap_text=True)
+
+        s6 = ws3.cell(row=hist_row, column=6)
+        s6.fill, s6.font = (OK_FILL, OK_FONT) if ok_nok == "OK" else (NOK_FILL, NOK_FONT)
+
+        for c in range(1, 10):
+            cell = ws3.cell(row=hist_row, column=c)
+            if not cell.font.bold:
+                cell.font = NORMAL_FONT
+            cell.border = BORDER
+        hist_row += 1
+
+    ws3.freeze_panes = "A2"
+
+    # Sheet 4: Defect
+    ws4 = wb.create_sheet("Daftar Defect")
+    ws4.sheet_properties.tabColor = "FF0000"
+
+    d_headers = ["ID", "Judul", "Severity", "Status", "Keterangan"]
+    d_widths = [12, 35, 12, 20, 40]
+    for c, h in enumerate(d_headers, start=1):
+        cell = ws4.cell(row=1, column=c, value=h)
+        cell.font = HEADER_FONT
+        cell.fill = PatternFill("solid", fgColor="C00000")
+        cell.alignment = Alignment(horizontal="center", vertical="center")
+        cell.border = BORDER
+    for c, w in enumerate(d_widths, start=1):
+        ws4.column_dimensions[get_column_letter(c)].width = w
+
+    defect_lines = [l.strip() for l in defect_teks.splitlines()
+                    if l.strip().startswith("|") and re.match(r"^\|\s*DEF-\d+", l.strip())]
+    for ri, line in enumerate(defect_lines, start=2):
+        cols = [c.strip() for c in line.strip("|").split("|")]
+        for ci in range(min(5, len(cols))):
+            cell = ws4.cell(row=ri, column=ci + 1, value=cols[ci])
+            cell.font = NORMAL_FONT
+            cell.border = BORDER
+            cell.alignment = Alignment(vertical="center", wrap_text=True)
+    ws4.freeze_panes = "A2"
 
     out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}.xlsx"
-    try:
-        wb.save(out)
-    except PermissionError:
-        # File lama terbuka di Excel/terkunci -> simpan dengan suffix jam
-        import time
-        out = OUT_DIR / f"Laporan-QA-Ipos5-{date.today().isoformat()}-{time.strftime('%H%M')}.xlsx"
-        wb.save(out)
-        print("[INFO] File tanggal sama terkunci; disimpan dengan suffix jam.")
-    print(f"Laporan Excel dibuat : {out.relative_to(ROOT)}")
-    print(f"Data                 : {total} test case ({n_pass} PASS, {n_fail} FAIL), {len(defect_rows)} defect")
+    wb.save(out)
+    print(f"Laporan Excel dibuat: {out.relative_to(ROOT)}")
+    print(f"Total: {total} | PASS: {n_pass} | FAIL: {n_fail}")
     return 0
 
 
