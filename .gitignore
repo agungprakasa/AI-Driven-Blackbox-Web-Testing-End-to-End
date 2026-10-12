@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Test results
+test-results/
+playwright-report/
+blob-report/
+
+# Generated evidence & reports (never commit)
+evidence/
+reports/
+
+# Environment & credentials
+.env
+config/api-config.env
+input/credential/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.tmp
+*.bak
+~$*
